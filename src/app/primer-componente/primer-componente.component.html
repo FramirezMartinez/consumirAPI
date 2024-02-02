@@ -1,0 +1,60 @@
+
+
+<p class="colorAzul">{{nombre}}</p>
+
+ <button   class="btn btn-danger" type="button" class="btnNombre" (click)="CambiarNombre()" >
+ Cambiar nombre
+</button>
+
+
+  <div class="nombre-mos" *ngIf="bandera" >
+    Hola {{nombre}} 
+  </div>
+  
+
+<table class="tabla">
+  <thead>
+    <tr>
+      <th class="celda-encabezado">Nombre</th>
+      <th class="celda-encabezado">Apellido Paterno</th>
+      <th class="celda-encabezado">Apellido Materno</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let i of alumnos">
+      <td>{{ i.nombre }}</td>
+      <td>{{ i.apellido1 }}</td>
+      <td>{{ i.apellido2}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-container">
+  <button class="btn btn-primary"   (click)="onButtonClick(1)" [ngClass]="{'button': true, 'button-1': true}">Botón 1</button>
+  <button (click)="onButtonClick(2)" [ngClass]="{'button': true, 'button-2': true}">Botón 2</button>
+  <button (click)="onButtonClick(3)" [ngClass]="{'button': true, 'button-3': true}">Botón 3</button>
+  <button (click)="onButtonClick(4)" [ngClass]="{'button': true, 'button-4': true}">Botón 4</button>
+</div>
+
+<div *ngIf="mostrarTexto !== ''" class="vistaMos">
+  <p [ngClass]="styleClass">{{ mostrarTexto}}</p>
+</div>
+
+
+
+<div>
+  <label for="">Días de la semana</label>
+  <select [(ngModel)]="diasSeleccionados">
+    <option *ngFor="let dia of diasSemana"[value]="dia.diaSolo">{{dia.dia}} </option>
+  </select>
+</div>
+<h1>{{diasSeleccionados}}</h1>
+
+<button type="button" (click)="mostrarArrayMod()">
+mostrar
+</button>
+
+
+
+<button class="btn btn-danger">dajcbabc sdhbcdjhjhadvhj</button>

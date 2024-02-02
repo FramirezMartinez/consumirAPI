@@ -1,0 +1,52 @@
+
+<!-- mi-componente.component.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+   
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Bienvenido</a>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex" (submit)="evitarRecarga($event)">
+                <input type="text" class="form-control" placeholder="Buscar ..." [(ngModel)]="filtroTexto" name="search">
+                <button class="btn btn-primary  m-2 " type="submit">Buscar</button>
+              </form>
+              
+          </div>
+        </div>
+      </nav> 
+
+
+
+    <div class="Card" style="width:19rem; display: inline-block; margin: 15px 15px; border:2px solid black; border-radius:10px;" *ngFor="let item of arrayAux; let i = index">
+        <img [src]="item.image" class="card-img-top" alt="Imagen">
+        <h2 class="text-center m-2">{{item.name}}</h2>
+        <h2 class="text-center"></h2>
+        <figure>
+            <figcaption  class="text-center">
+              Especie: <cite title="Source Title">{{item.species}}</cite>
+            </figcaption>
+          </figure>
+        <!-- Botón para alternar la visualización de la especie -->
+        <button *ngIf="bandera" type="button" class=" p-2 mb-2 btn btn-primary opacity-90" (click)="mostrarEspecie(i)" style="display: block; margin: 0 auto;">Mostrar Estado</button>
+        
+        <!-- Muestra el estado si itemSeleccionadoId es igual al índice del ítem actual en el bucle -->
+        <div  *ngIf="itemSeleccionadoId === i" style="text-align: center; background-color: cornflowerblue; margin: 5%;" >
+     {{estado(item)}}
+        </div>
+
+    </div>
+
+
+    <button (click)="cargarMas()" class="btn btn-info"> Cargar más</button>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+
+<div>
+    <p>El número aleatorio es: {{ numale }}</p>
+    <button (click)="generarNumeroAleatorio()">Generar Nuevo Número</button>
+</div>
+  
+
+<div>
+    <h2>Determinar Siglo</h2>
+    <div>
+      <label>Ingrese un año:</label>
+      <input type="number"  [(ngModel)]="year">
+      <button (click)="calcularSiglo()">Calcular Siglo</button>
+    </div>
+    <div *ngIf="siglo !== undefined">
+     <p>El año {{ year }} pertenece al siglo {{ siglo }}</p>
+    </div>
+  </div>
+
+
+  <div>
+    <h1>Utilizando la función map</h1>
+    <p>{{duplicados}}</p>
+    </div>
+
+  
